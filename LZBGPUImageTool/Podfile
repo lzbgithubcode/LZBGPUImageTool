@@ -1,0 +1,4 @@
+
+target ‘LZBGPUImageTool’ do
+   pod ‘GPUImage’
+end

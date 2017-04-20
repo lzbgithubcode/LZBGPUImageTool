@@ -7,6 +7,11 @@
     },
     {
       "idiom" : "iphone",
+      "size" : "20x20",
+      "scale" : "3x"
+    },
+    {
+      "idiom" : "iphone",
       "size" : "29x29",
       "scale" : "2x"
     },
