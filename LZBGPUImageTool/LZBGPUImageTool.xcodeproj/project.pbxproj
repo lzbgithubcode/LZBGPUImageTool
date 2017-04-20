@@ -1,0 +1,610 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		18A36383176B5F99BFFC1334 /* libPods-LZBGPUImageTool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C91F93C08B3ED449766A68BC /* libPods-LZBGPUImageTool.a */; };
+		C8FA86831EA85DB400F3E17A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86821EA85DB400F3E17A /* main.m */; };
+		C8FA86861EA85DB400F3E17A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86851EA85DB400F3E17A /* AppDelegate.m */; };
+		C8FA86891EA85DB400F3E17A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86881EA85DB400F3E17A /* ViewController.m */; };
+		C8FA868C1EA85DB400F3E17A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8FA868A1EA85DB400F3E17A /* Main.storyboard */; };
+		C8FA868E1EA85DB400F3E17A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8FA868D1EA85DB400F3E17A /* Assets.xcassets */; };
+		C8FA86911EA85DB400F3E17A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8FA868F1EA85DB400F3E17A /* LaunchScreen.storyboard */; };
+		C8FA869C1EA85DB500F3E17A /* LZBGPUImageToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA869B1EA85DB500F3E17A /* LZBGPUImageToolTests.m */; };
+		C8FA86A71EA85DB500F3E17A /* LZBGPUImageToolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86A61EA85DB500F3E17A /* LZBGPUImageToolUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8FA86981EA85DB500F3E17A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8FA86761EA85DB400F3E17A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8FA867D1EA85DB400F3E17A;
+			remoteInfo = LZBGPUImageTool;
+		};
+		C8FA86A31EA85DB500F3E17A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8FA86761EA85DB400F3E17A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8FA867D1EA85DB400F3E17A;
+			remoteInfo = LZBGPUImageTool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		81D31F1887729127E93FB09C /* Pods-LZBGPUImageTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBGPUImageTool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZBGPUImageTool/Pods-LZBGPUImageTool.debug.xcconfig"; sourceTree = "<group>"; };
+		C8FA867E1EA85DB400F3E17A /* LZBGPUImageTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZBGPUImageTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FA86821EA85DB400F3E17A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C8FA86841EA85DB400F3E17A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C8FA86851EA85DB400F3E17A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C8FA86871EA85DB400F3E17A /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		C8FA86881EA85DB400F3E17A /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		C8FA868B1EA85DB400F3E17A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8FA868D1EA85DB400F3E17A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8FA86901EA85DB400F3E17A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C8FA86921EA85DB400F3E17A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8FA86971EA85DB500F3E17A /* LZBGPUImageToolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LZBGPUImageToolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FA869B1EA85DB500F3E17A /* LZBGPUImageToolTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZBGPUImageToolTests.m; sourceTree = "<group>"; };
+		C8FA869D1EA85DB500F3E17A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8FA86A21EA85DB500F3E17A /* LZBGPUImageToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LZBGPUImageToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8FA86A61EA85DB500F3E17A /* LZBGPUImageToolUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZBGPUImageToolUITests.m; sourceTree = "<group>"; };
+		C8FA86A81EA85DB500F3E17A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C91F93C08B3ED449766A68BC /* libPods-LZBGPUImageTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LZBGPUImageTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD8F8F229FF1F1F69C3787C0 /* Pods-LZBGPUImageTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBGPUImageTool.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZBGPUImageTool/Pods-LZBGPUImageTool.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8FA867B1EA85DB400F3E17A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				18A36383176B5F99BFFC1334 /* libPods-LZBGPUImageTool.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FA86941EA85DB500F3E17A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FA869F1EA85DB500F3E17A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		42D66E2302F8220FEF6AF93A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C91F93C08B3ED449766A68BC /* libPods-LZBGPUImageTool.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C31838110F76ADD04EFA34D0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				81D31F1887729127E93FB09C /* Pods-LZBGPUImageTool.debug.xcconfig */,
+				CD8F8F229FF1F1F69C3787C0 /* Pods-LZBGPUImageTool.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C8FA86751EA85DB400F3E17A = {
+			isa = PBXGroup;
+			children = (
+				C8FA86801EA85DB400F3E17A /* LZBGPUImageTool */,
+				C8FA869A1EA85DB500F3E17A /* LZBGPUImageToolTests */,
+				C8FA86A51EA85DB500F3E17A /* LZBGPUImageToolUITests */,
+				C8FA867F1EA85DB400F3E17A /* Products */,
+				C31838110F76ADD04EFA34D0 /* Pods */,
+				42D66E2302F8220FEF6AF93A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		C8FA867F1EA85DB400F3E17A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA867E1EA85DB400F3E17A /* LZBGPUImageTool.app */,
+				C8FA86971EA85DB500F3E17A /* LZBGPUImageToolTests.xctest */,
+				C8FA86A21EA85DB500F3E17A /* LZBGPUImageToolUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8FA86801EA85DB400F3E17A /* LZBGPUImageTool */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA86841EA85DB400F3E17A /* AppDelegate.h */,
+				C8FA86851EA85DB400F3E17A /* AppDelegate.m */,
+				C8FA86871EA85DB400F3E17A /* ViewController.h */,
+				C8FA86881EA85DB400F3E17A /* ViewController.m */,
+				C8FA868A1EA85DB400F3E17A /* Main.storyboard */,
+				C8FA868D1EA85DB400F3E17A /* Assets.xcassets */,
+				C8FA868F1EA85DB400F3E17A /* LaunchScreen.storyboard */,
+				C8FA86921EA85DB400F3E17A /* Info.plist */,
+				C8FA86811EA85DB400F3E17A /* Supporting Files */,
+			);
+			path = LZBGPUImageTool;
+			sourceTree = "<group>";
+		};
+		C8FA86811EA85DB400F3E17A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA86821EA85DB400F3E17A /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C8FA869A1EA85DB500F3E17A /* LZBGPUImageToolTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA869B1EA85DB500F3E17A /* LZBGPUImageToolTests.m */,
+				C8FA869D1EA85DB500F3E17A /* Info.plist */,
+			);
+			path = LZBGPUImageToolTests;
+			sourceTree = "<group>";
+		};
+		C8FA86A51EA85DB500F3E17A /* LZBGPUImageToolUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA86A61EA85DB500F3E17A /* LZBGPUImageToolUITests.m */,
+				C8FA86A81EA85DB500F3E17A /* Info.plist */,
+			);
+			path = LZBGPUImageToolUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8FA867D1EA85DB400F3E17A /* LZBGPUImageTool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8FA86AB1EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageTool" */;
+			buildPhases = (
+				1804FEB6C02437C945249BFC /* [CP] Check Pods Manifest.lock */,
+				C8FA867A1EA85DB400F3E17A /* Sources */,
+				C8FA867B1EA85DB400F3E17A /* Frameworks */,
+				C8FA867C1EA85DB400F3E17A /* Resources */,
+				9506FD5AB2ABC449E69D5A7B /* [CP] Embed Pods Frameworks */,
+				7544A351C87014BAFE56F7C2 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LZBGPUImageTool;
+			productName = LZBGPUImageTool;
+			productReference = C8FA867E1EA85DB400F3E17A /* LZBGPUImageTool.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8FA86961EA85DB500F3E17A /* LZBGPUImageToolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8FA86AE1EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageToolTests" */;
+			buildPhases = (
+				C8FA86931EA85DB500F3E17A /* Sources */,
+				C8FA86941EA85DB500F3E17A /* Frameworks */,
+				C8FA86951EA85DB500F3E17A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8FA86991EA85DB500F3E17A /* PBXTargetDependency */,
+			);
+			name = LZBGPUImageToolTests;
+			productName = LZBGPUImageToolTests;
+			productReference = C8FA86971EA85DB500F3E17A /* LZBGPUImageToolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C8FA86A11EA85DB500F3E17A /* LZBGPUImageToolUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8FA86B11EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageToolUITests" */;
+			buildPhases = (
+				C8FA869E1EA85DB500F3E17A /* Sources */,
+				C8FA869F1EA85DB500F3E17A /* Frameworks */,
+				C8FA86A01EA85DB500F3E17A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8FA86A41EA85DB500F3E17A /* PBXTargetDependency */,
+			);
+			name = LZBGPUImageToolUITests;
+			productName = LZBGPUImageToolUITests;
+			productReference = C8FA86A21EA85DB500F3E17A /* LZBGPUImageToolUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8FA86761EA85DB400F3E17A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = Apple;
+				TargetAttributes = {
+					C8FA867D1EA85DB400F3E17A = {
+						CreatedOnToolsVersion = 8.3.1;
+						DevelopmentTeam = Y2H57HDYD9;
+						ProvisioningStyle = Automatic;
+					};
+					C8FA86961EA85DB500F3E17A = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C8FA867D1EA85DB400F3E17A;
+					};
+					C8FA86A11EA85DB500F3E17A = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C8FA867D1EA85DB400F3E17A;
+					};
+				};
+			};
+			buildConfigurationList = C8FA86791EA85DB400F3E17A /* Build configuration list for PBXProject "LZBGPUImageTool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8FA86751EA85DB400F3E17A;
+			productRefGroup = C8FA867F1EA85DB400F3E17A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8FA867D1EA85DB400F3E17A /* LZBGPUImageTool */,
+				C8FA86961EA85DB500F3E17A /* LZBGPUImageToolTests */,
+				C8FA86A11EA85DB500F3E17A /* LZBGPUImageToolUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8FA867C1EA85DB400F3E17A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FA86911EA85DB400F3E17A /* LaunchScreen.storyboard in Resources */,
+				C8FA868E1EA85DB400F3E17A /* Assets.xcassets in Resources */,
+				C8FA868C1EA85DB400F3E17A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FA86951EA85DB500F3E17A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FA86A01EA85DB500F3E17A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1804FEB6C02437C945249BFC /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		7544A351C87014BAFE56F7C2 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LZBGPUImageTool/Pods-LZBGPUImageTool-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9506FD5AB2ABC449E69D5A7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LZBGPUImageTool/Pods-LZBGPUImageTool-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8FA867A1EA85DB400F3E17A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FA86891EA85DB400F3E17A /* ViewController.m in Sources */,
+				C8FA86861EA85DB400F3E17A /* AppDelegate.m in Sources */,
+				C8FA86831EA85DB400F3E17A /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FA86931EA85DB500F3E17A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FA869C1EA85DB500F3E17A /* LZBGPUImageToolTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8FA869E1EA85DB500F3E17A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8FA86A71EA85DB500F3E17A /* LZBGPUImageToolUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8FA86991EA85DB500F3E17A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8FA867D1EA85DB400F3E17A /* LZBGPUImageTool */;
+			targetProxy = C8FA86981EA85DB500F3E17A /* PBXContainerItemProxy */;
+		};
+		C8FA86A41EA85DB500F3E17A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8FA867D1EA85DB400F3E17A /* LZBGPUImageTool */;
+			targetProxy = C8FA86A31EA85DB500F3E17A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C8FA868A1EA85DB400F3E17A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8FA868B1EA85DB400F3E17A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C8FA868F1EA85DB400F3E17A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8FA86901EA85DB400F3E17A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C8FA86A91EA85DB500F3E17A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C8FA86AA1EA85DB500F3E17A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C8FA86AC1EA85DB500F3E17A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 81D31F1887729127E93FB09C /* Pods-LZBGPUImageTool.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y2H57HDYD9;
+				INFOPLIST_FILE = LZBGPUImageTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C8FA86AD1EA85DB500F3E17A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD8F8F229FF1F1F69C3787C0 /* Pods-LZBGPUImageTool.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Y2H57HDYD9;
+				INFOPLIST_FILE = LZBGPUImageTool/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageTool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C8FA86AF1EA85DB500F3E17A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LZBGPUImageToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LZBGPUImageTool.app/LZBGPUImageTool";
+			};
+			name = Debug;
+		};
+		C8FA86B01EA85DB500F3E17A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LZBGPUImageToolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageToolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LZBGPUImageTool.app/LZBGPUImageTool";
+			};
+			name = Release;
+		};
+		C8FA86B21EA85DB500F3E17A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LZBGPUImageToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LZBGPUImageTool;
+			};
+			name = Debug;
+		};
+		C8FA86B31EA85DB500F3E17A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = LZBGPUImageToolUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageToolUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = LZBGPUImageTool;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8FA86791EA85DB400F3E17A /* Build configuration list for PBXProject "LZBGPUImageTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FA86A91EA85DB500F3E17A /* Debug */,
+				C8FA86AA1EA85DB500F3E17A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8FA86AB1EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageTool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FA86AC1EA85DB500F3E17A /* Debug */,
+				C8FA86AD1EA85DB500F3E17A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C8FA86AE1EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageToolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FA86AF1EA85DB500F3E17A /* Debug */,
+				C8FA86B01EA85DB500F3E17A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		C8FA86B11EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageToolUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8FA86B21EA85DB500F3E17A /* Debug */,
+				C8FA86B31EA85DB500F3E17A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8FA86761EA85DB400F3E17A /* Project object */;
+}
