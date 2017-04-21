@@ -16,6 +16,18 @@
 		C8FA86911EA85DB400F3E17A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8FA868F1EA85DB400F3E17A /* LaunchScreen.storyboard */; };
 		C8FA869C1EA85DB500F3E17A /* LZBGPUImageToolTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA869B1EA85DB500F3E17A /* LZBGPUImageToolTests.m */; };
 		C8FA86A71EA85DB500F3E17A /* LZBGPUImageToolUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86A61EA85DB500F3E17A /* LZBGPUImageToolUITests.m */; };
+		C8FA86B71EA8626D00F3E17A /* LZBImageVideoCamera.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86B61EA8626D00F3E17A /* LZBImageVideoCamera.m */; };
+		C8FA86BA1EA8638700F3E17A /* LZBImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86B91EA8638700F3E17A /* LZBImageView.m */; };
+		C8FA86BE1EA8640400F3E17A /* LZBImageFilterGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86BD1EA8640400F3E17A /* LZBImageFilterGroup.m */; };
+		C8FA86C11EA8668C00F3E17A /* LZBImageMovieWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86C01EA8668C00F3E17A /* LZBImageMovieWriter.m */; };
+		C8FA86C51EA89A7300F3E17A /* record_normal@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8FA86C31EA89A7300F3E17A /* record_normal@3x.png */; };
+		C8FA86C61EA89A7300F3E17A /* record_normal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8FA86C41EA89A7300F3E17A /* record_normal@2x.png */; };
+		C8FA86CA1EA89CD800F3E17A /* LZBCircleProcessView.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86C91EA89CD800F3E17A /* LZBCircleProcessView.m */; };
+		C8FA86D01EA8BC6E00F3E17A /* LZBFilterCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86CF1EA8BC6E00F3E17A /* LZBFilterCollectionViewCell.m */; };
+		C8FA86D31EA999F700F3E17A /* LZBFilterHandleTool.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86D21EA999F700F3E17A /* LZBFilterHandleTool.m */; };
+		C8FA86D61EA99C5600F3E17A /* kxq_explore_image@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8FA86D41EA99C5600F3E17A /* kxq_explore_image@2x.png */; };
+		C8FA86D71EA99C5600F3E17A /* kxq_explore_image@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = C8FA86D51EA99C5600F3E17A /* kxq_explore_image@3x.png */; };
+		C8FA86DA1EA9A67900F3E17A /* LZBBeautyFilter.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86D91EA9A67900F3E17A /* LZBBeautyFilter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +65,26 @@
 		C8FA86A21EA85DB500F3E17A /* LZBGPUImageToolUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LZBGPUImageToolUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8FA86A61EA85DB500F3E17A /* LZBGPUImageToolUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LZBGPUImageToolUITests.m; sourceTree = "<group>"; };
 		C8FA86A81EA85DB500F3E17A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8FA86B51EA8626D00F3E17A /* LZBImageVideoCamera.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBImageVideoCamera.h; sourceTree = "<group>"; };
+		C8FA86B61EA8626D00F3E17A /* LZBImageVideoCamera.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBImageVideoCamera.m; sourceTree = "<group>"; };
+		C8FA86B81EA8638700F3E17A /* LZBImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBImageView.h; sourceTree = "<group>"; };
+		C8FA86B91EA8638700F3E17A /* LZBImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBImageView.m; sourceTree = "<group>"; };
+		C8FA86BC1EA8640400F3E17A /* LZBImageFilterGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBImageFilterGroup.h; sourceTree = "<group>"; };
+		C8FA86BD1EA8640400F3E17A /* LZBImageFilterGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBImageFilterGroup.m; sourceTree = "<group>"; };
+		C8FA86BF1EA8668C00F3E17A /* LZBImageMovieWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBImageMovieWriter.h; sourceTree = "<group>"; };
+		C8FA86C01EA8668C00F3E17A /* LZBImageMovieWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBImageMovieWriter.m; sourceTree = "<group>"; };
+		C8FA86C31EA89A7300F3E17A /* record_normal@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "record_normal@3x.png"; sourceTree = "<group>"; };
+		C8FA86C41EA89A7300F3E17A /* record_normal@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "record_normal@2x.png"; sourceTree = "<group>"; };
+		C8FA86C81EA89CD800F3E17A /* LZBCircleProcessView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBCircleProcessView.h; sourceTree = "<group>"; };
+		C8FA86C91EA89CD800F3E17A /* LZBCircleProcessView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBCircleProcessView.m; sourceTree = "<group>"; };
+		C8FA86CE1EA8BC6E00F3E17A /* LZBFilterCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBFilterCollectionViewCell.h; sourceTree = "<group>"; };
+		C8FA86CF1EA8BC6E00F3E17A /* LZBFilterCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBFilterCollectionViewCell.m; sourceTree = "<group>"; };
+		C8FA86D11EA999F700F3E17A /* LZBFilterHandleTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = LZBFilterHandleTool.h; path = LZBFilters/LZBFilterHandleTool.h; sourceTree = "<group>"; };
+		C8FA86D21EA999F700F3E17A /* LZBFilterHandleTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = LZBFilterHandleTool.m; path = LZBFilters/LZBFilterHandleTool.m; sourceTree = "<group>"; };
+		C8FA86D41EA99C5600F3E17A /* kxq_explore_image@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kxq_explore_image@2x.png"; sourceTree = "<group>"; };
+		C8FA86D51EA99C5600F3E17A /* kxq_explore_image@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "kxq_explore_image@3x.png"; sourceTree = "<group>"; };
+		C8FA86D81EA9A67900F3E17A /* LZBBeautyFilter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBBeautyFilter.h; sourceTree = "<group>"; };
+		C8FA86D91EA9A67900F3E17A /* LZBBeautyFilter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBBeautyFilter.m; sourceTree = "<group>"; };
 		C91F93C08B3ED449766A68BC /* libPods-LZBGPUImageTool.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LZBGPUImageTool.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD8F8F229FF1F1F69C3787C0 /* Pods-LZBGPUImageTool.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBGPUImageTool.release.xcconfig"; path = "Pods/Target Support Files/Pods-LZBGPUImageTool/Pods-LZBGPUImageTool.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,6 +157,7 @@
 		C8FA86801EA85DB400F3E17A /* LZBGPUImageTool */ = {
 			isa = PBXGroup;
 			children = (
+				C8FA86B41EA8623F00F3E17A /* LZBGPUImageTool */,
 				C8FA86841EA85DB400F3E17A /* AppDelegate.h */,
 				C8FA86851EA85DB400F3E17A /* AppDelegate.m */,
 				C8FA86871EA85DB400F3E17A /* ViewController.h */,
@@ -162,6 +195,57 @@
 				C8FA86A81EA85DB500F3E17A /* Info.plist */,
 			);
 			path = LZBGPUImageToolUITests;
+			sourceTree = "<group>";
+		};
+		C8FA86B41EA8623F00F3E17A /* LZBGPUImageTool */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA86C71EA89CBB00F3E17A /* View */,
+				C8FA86C21EA899E100F3E17A /* Resoure */,
+				C8FA86BB1EA863CC00F3E17A /* LZBFilters */,
+				C8FA86B51EA8626D00F3E17A /* LZBImageVideoCamera.h */,
+				C8FA86B61EA8626D00F3E17A /* LZBImageVideoCamera.m */,
+				C8FA86B81EA8638700F3E17A /* LZBImageView.h */,
+				C8FA86B91EA8638700F3E17A /* LZBImageView.m */,
+				C8FA86BC1EA8640400F3E17A /* LZBImageFilterGroup.h */,
+				C8FA86BD1EA8640400F3E17A /* LZBImageFilterGroup.m */,
+				C8FA86BF1EA8668C00F3E17A /* LZBImageMovieWriter.h */,
+				C8FA86C01EA8668C00F3E17A /* LZBImageMovieWriter.m */,
+				C8FA86D11EA999F700F3E17A /* LZBFilterHandleTool.h */,
+				C8FA86D21EA999F700F3E17A /* LZBFilterHandleTool.m */,
+			);
+			path = LZBGPUImageTool;
+			sourceTree = "<group>";
+		};
+		C8FA86BB1EA863CC00F3E17A /* LZBFilters */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA86D81EA9A67900F3E17A /* LZBBeautyFilter.h */,
+				C8FA86D91EA9A67900F3E17A /* LZBBeautyFilter.m */,
+			);
+			path = LZBFilters;
+			sourceTree = "<group>";
+		};
+		C8FA86C21EA899E100F3E17A /* Resoure */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA86D41EA99C5600F3E17A /* kxq_explore_image@2x.png */,
+				C8FA86D51EA99C5600F3E17A /* kxq_explore_image@3x.png */,
+				C8FA86C31EA89A7300F3E17A /* record_normal@3x.png */,
+				C8FA86C41EA89A7300F3E17A /* record_normal@2x.png */,
+			);
+			path = Resoure;
+			sourceTree = "<group>";
+		};
+		C8FA86C71EA89CBB00F3E17A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C8FA86C81EA89CD800F3E17A /* LZBCircleProcessView.h */,
+				C8FA86C91EA89CD800F3E17A /* LZBCircleProcessView.m */,
+				C8FA86CE1EA8BC6E00F3E17A /* LZBFilterCollectionViewCell.h */,
+				C8FA86CF1EA8BC6E00F3E17A /* LZBFilterCollectionViewCell.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,8 +359,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8FA86911EA85DB400F3E17A /* LaunchScreen.storyboard in Resources */,
+				C8FA86D61EA99C5600F3E17A /* kxq_explore_image@2x.png in Resources */,
+				C8FA86C51EA89A7300F3E17A /* record_normal@3x.png in Resources */,
 				C8FA868E1EA85DB400F3E17A /* Assets.xcassets in Resources */,
+				C8FA86D71EA99C5600F3E17A /* kxq_explore_image@3x.png in Resources */,
 				C8FA868C1EA85DB400F3E17A /* Main.storyboard in Resources */,
+				C8FA86C61EA89A7300F3E17A /* record_normal@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,9 +437,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8FA86BE1EA8640400F3E17A /* LZBImageFilterGroup.m in Sources */,
+				C8FA86C11EA8668C00F3E17A /* LZBImageMovieWriter.m in Sources */,
+				C8FA86D31EA999F700F3E17A /* LZBFilterHandleTool.m in Sources */,
 				C8FA86891EA85DB400F3E17A /* ViewController.m in Sources */,
 				C8FA86861EA85DB400F3E17A /* AppDelegate.m in Sources */,
+				C8FA86DA1EA9A67900F3E17A /* LZBBeautyFilter.m in Sources */,
+				C8FA86BA1EA8638700F3E17A /* LZBImageView.m in Sources */,
+				C8FA86D01EA8BC6E00F3E17A /* LZBFilterCollectionViewCell.m in Sources */,
+				C8FA86CA1EA89CD800F3E17A /* LZBCircleProcessView.m in Sources */,
 				C8FA86831EA85DB400F3E17A /* main.m in Sources */,
+				C8FA86B71EA8626D00F3E17A /* LZBImageVideoCamera.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -503,6 +599,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y2H57HDYD9;
 				INFOPLIST_FILE = LZBGPUImageTool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,6 +613,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = Y2H57HDYD9;
 				INFOPLIST_FILE = LZBGPUImageTool/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lzbcoder.LZBGPUImageTool;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -587,6 +685,7 @@
 				C8FA86AD1EA85DB500F3E17A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8FA86AE1EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageToolTests" */ = {
 			isa = XCConfigurationList;
@@ -595,6 +694,7 @@
 				C8FA86B01EA85DB500F3E17A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C8FA86B11EA85DB500F3E17A /* Build configuration list for PBXNativeTarget "LZBGPUImageToolUITests" */ = {
 			isa = XCConfigurationList;
@@ -603,6 +703,7 @@
 				C8FA86B31EA85DB500F3E17A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
