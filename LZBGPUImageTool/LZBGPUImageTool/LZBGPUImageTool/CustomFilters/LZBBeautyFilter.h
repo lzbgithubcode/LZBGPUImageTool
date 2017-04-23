@@ -13,6 +13,7 @@
 #else
 #import "GPUImage.h"
 #endif
+
 @interface LZBBeautyFilter : GPUImageFilter
 /** 美颜程度 */
 @property (nonatomic, assign) CGFloat beautyLevel;

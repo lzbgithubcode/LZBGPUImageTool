@@ -9,10 +9,18 @@
 #import <AVFoundation/AVFoundation.h>
 #import <GPUImage.h>
 #import "LZBBeautyFilter.h"
+#import "InstaFilters.h"
 typedef NS_ENUM(NSInteger,LZBFilterType)
 {
     LZBFilterType_None = 0,
     LZBFilterType_Beauty = 1, //美白
+    LZBFilterType_HEIBAI = 2, //黑白
+    LZBFilterType_FUGU = 3, //鲜亮
+    LZBFilterType_DANYA = 4, //胶片
+    LZBFilterType_QINGNING = 5, //少女
+    LZBFilterType_GETE = 6, //暖暖
+    
+    
 };
 
 @interface LZBFilterHandleTool : NSObject

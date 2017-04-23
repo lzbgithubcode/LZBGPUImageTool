@@ -270,6 +270,7 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
        _collectionView.backgroundColor = [UIColor whiteColor];
        _collectionView.delegate = self;
        _collectionView.dataSource = self;
+       _collectionView.showsHorizontalScrollIndicator = NO;
        [_collectionView registerClass:[LZBFilterCollectionViewCell class] forCellWithReuseIdentifier:LZBFilterCollectionViewCellID];
    }
     return _collectionView;
@@ -279,14 +280,14 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 {
     __weak typeof(self) weakSelf = self;
     UIImage *orginImage = [UIImage imageNamed:@"kxq_explore_image"];
-    for (NSInteger i = 0;i < 2; i++) {
+    for (NSInteger i = 0;i < 7; i++) {
         LZBFilterModel *model = [[LZBFilterModel alloc]init];
         LZBFilterType type = [[LZBFilterHandleTool sharedInstance] getFilterTypeForIndex:i];
         model.filterName = [[LZBFilterHandleTool sharedInstance] getFilterNameWithFilterType:type];
         dispatch_async(dispatch_get_global_queue(0, 0), ^{
-            UIImage *tempThumbnailImage = [[LZBFilterHandleTool sharedInstance] getFilterImageForOrginImage:orginImage filterType:type];
+            UIImage *filterImage = [[LZBFilterHandleTool sharedInstance] getFilterImageForOrginImage:orginImage filterType:type];
             dispatch_async(dispatch_get_main_queue(), ^{
-                model.filterImage = tempThumbnailImage;
+                model.filterImage = filterImage;
                 [weakSelf.filterModels addObject:model];
                 [weakSelf.collectionView reloadData];
             });

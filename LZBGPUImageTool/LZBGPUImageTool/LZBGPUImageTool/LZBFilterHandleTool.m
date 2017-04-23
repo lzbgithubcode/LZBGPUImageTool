@@ -7,6 +7,7 @@
 //
 
 #import "LZBFilterHandleTool.h"
+
 static LZBFilterHandleTool *_sharedInstance = nil;
 @implementation LZBFilterHandleTool
 + (LZBFilterHandleTool *)sharedInstance {
@@ -27,6 +28,22 @@ static LZBFilterHandleTool *_sharedInstance = nil;
         case 1:
             filterType = LZBFilterType_Beauty;
             break;
+        case 2:
+            filterType = LZBFilterType_HEIBAI;
+            break;
+        case 3:
+            filterType = LZBFilterType_FUGU;
+            break;
+        case 4:
+            filterType = LZBFilterType_DANYA;
+            break;
+        case 5:
+            filterType = LZBFilterType_QINGNING;
+            break;
+        case 6:
+            filterType = LZBFilterType_GETE;
+            break;
+            
             
         default:
             break;
@@ -44,6 +61,21 @@ static LZBFilterHandleTool *_sharedInstance = nil;
         case LZBFilterType_Beauty:
             filterName = @"美白";
             break;
+        case LZBFilterType_HEIBAI:
+             filterName = @"黑白";
+            break;
+        case LZBFilterType_FUGU:
+            filterName = @"鲜亮";
+            break;
+        case LZBFilterType_DANYA:
+           filterName = @"胶片";
+            break;
+        case LZBFilterType_QINGNING:
+            filterName = @"少女";
+            break;
+        case LZBFilterType_GETE:
+            filterName = @"暖暖";
+            break;
             
         default:
             break;
@@ -59,6 +91,21 @@ static LZBFilterHandleTool *_sharedInstance = nil;
             break;
         case LZBFilterType_Beauty:
             filter = [[LZBBeautyFilter alloc]init];
+            break;
+        case LZBFilterType_HEIBAI:
+            filter = [[IFBrannanFilter alloc] init];
+            break;
+        case LZBFilterType_FUGU:
+            filter = [[IF1977Filter alloc] init];
+            break;
+        case LZBFilterType_DANYA:
+            filter = [[IFAmaroFilter alloc] init];
+            break;
+        case LZBFilterType_QINGNING:
+            filter = [[IFLordKelvinFilter alloc] init];
+            break;
+        case LZBFilterType_GETE:
+            filter = [[IFInkwellFilter alloc] init];
             break;
       
         default:
