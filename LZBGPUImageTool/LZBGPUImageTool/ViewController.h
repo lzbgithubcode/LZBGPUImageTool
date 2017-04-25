@@ -6,6 +6,10 @@
 //  Copyright © 2017年 Apple. All rights reserved.
 //
 
+//  简书主页：http://www.jianshu.com/u/d21698127416
+//  共享demo资料QQ群：490658347
+//  git地址：https://github.com/lzbgithubcode/LZBGPUImageTool
+
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController

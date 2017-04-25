@@ -5,11 +5,16 @@
 //  Created by zibin on 2017/4/20.
 //  Copyright © 2017年 Apple. All rights reserved.
 //
+//  简书主页：http://www.jianshu.com/u/d21698127416
+//  共享demo资料QQ群：490658347
+//  git地址：https://github.com/lzbgithubcode/LZBGPUImageTool
 
 #import "LZBCircleProcessView.h"
 #define LZBCircleProcessView_ProcessWidth 5.0f
 #define LZBCircleProcessView_TimeMargin 0.1
-#define LZBCircleProcessView_DefaultMargin 10
+#define LZBCircleProcessView_DefaultMargin 20
+
+#define LZBColorRGB(r,g,b) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:1]
 @interface LZBCircleProcessView()
 @property (nonatomic, strong) CAShapeLayer *circleLayer;
 @property (nonatomic, strong) CAShapeLayer *processLayer;
@@ -117,7 +122,7 @@
       _processLayer = [CAShapeLayer layer];
       _processLayer.fillColor =nil;
       _processLayer.lineWidth = LZBCircleProcessView_ProcessWidth;
-      _processLayer.strokeColor = [UIColor blueColor].CGColor;
+      _processLayer.strokeColor = LZBColorRGB(33,201,152).CGColor;
       _processLayer.strokeStart = 0;
       _processLayer.strokeEnd = 0;
       _processLayer.path = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(0, 0, self.circleSize.width, self.circleSize.height) cornerRadius:self.circleSize.width *0.5].CGPath;
@@ -131,7 +136,7 @@
   if(_centerView == nil)
   {
       _centerView = [UIImageView new];
-      _centerView.backgroundColor = [UIColor blueColor];
+      _centerView.backgroundColor = LZBColorRGB(33,201,152);
       _centerView.layer.cornerRadius = (self.circleSize.width-LZBCircleProcessView_DefaultMargin) *0.5;
       _centerView.layer.masksToBounds = YES;
   }

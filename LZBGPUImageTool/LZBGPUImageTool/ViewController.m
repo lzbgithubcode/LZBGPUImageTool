@@ -4,13 +4,11 @@
 //
 //  Created by zibin on 2017/4/20.
 //  Copyright © 2017年 Apple. All rights reserved.
-//
+//  简书主页：http://www.jianshu.com/u/d21698127416
+//  共享demo资料QQ群：490658347
+//  git地址：https://github.com/lzbgithubcode/LZBGPUImageTool
 
 #import "ViewController.h"
-#import "LZBImageView.h"
-#import "LZBImageFilterGroup.h"
-#import "LZBImageVideoCamera.h"
-#import "LZBImageMovieWriter.h"
 #import "LZBCircleProcessView.h"
 #import "LZBFilterCollectionViewCell.h"
 #import "LZBFilterHandleTool.h"
@@ -19,6 +17,8 @@
 #define LZBImageViewWidth  720
 #define LZBImageViewHeight  1280
 #define collectionViewHeight  80
+
+#define filterButton_WithHeight 40
 
 static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID";
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
@@ -29,92 +29,118 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 @property (nonatomic, strong) AVPlayerLayer *avplayer;
 
 //相机
-@property (nonatomic, strong) LZBImageVideoCamera *videoCamera;
-@property (nonatomic, strong) LZBImageFilterGroup *filterGroup;
-@property (nonatomic, strong) LZBImageView *videoImageView;
-@property (nonatomic, strong) LZBImageMovieWriter *videoWriter;
+@property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
+@property (nonatomic, strong) GPUImageFilterGroup *filterGroup;
+@property (nonatomic, strong) GPUImageView *videoImageView;
+@property (nonatomic, strong) GPUImageMovieWriter *videoWriter;
 @property (nonatomic, strong) GPUImageOutput<GPUImageInput> *currentFilter;
 
 //UI
 @property (nonatomic, strong) UIButton *filterButton;
+@property (nonatomic, strong) UIButton *adjustButton;
 @property (nonatomic, strong) LZBCircleProcessView *circleView;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 
 //data
 @property (nonatomic, strong) NSMutableArray *filterModels;
-
+@property (nonatomic, assign) BOOL isShowFilterView;
 
 @end
 
 @implementation ViewController
+- (void)loadView
+{
+    [super loadView];
+    [self initFilterData];
+    self.isShowFilterView = NO;
+}
+
+- (instancetype)init
+{
+  if(self = [super init])
+  {
+      
+  }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self initFilterData];
+   
+    
     [self.view insertSubview:self.videoImageView atIndex:0];
     [self.view addSubview:self.filterButton];
     [self.view addSubview:self.circleView];
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.adjustButton];
+    [self createNewWritterWithisStart:YES];
+    [self addGestureWithCamera];
+}
 
-    self.videoWriter = [[LZBImageMovieWriter alloc] initWithMovieURL:[NSURL fileURLWithPath:self.videoPath] size:CGSizeMake(LZBImageViewWidth , LZBImageViewHeight) fileType:AVFileTypeMPEG4 outputSettings:self.videoSettings];
-    self.videoCamera.audioEncodingTarget = self.videoWriter;
-    [self.videoCamera addAudioInputsAndOutputs];
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
     [self.videoCamera startCameraCapture];
-    [self changeFilter:self.currentFilter];
-   
-    
 }
 
 - (void)viewWillLayoutSubviews
 {
     [super viewWillLayoutSubviews];
+    CGFloat  defaultMargin = self.view.bounds.size.width * 0.1;
     self.videoImageView.frame = self.view.bounds;
-    self.filterButton.frame = CGRectMake(0, self.view.bounds.size.height - 60, 60   , 30);
+    self.filterButton.frame = CGRectMake(defaultMargin, self.view.bounds.size.height - 60,filterButton_WithHeight, filterButton_WithHeight);
+    self.adjustButton.frame = CGRectMake(self.view.bounds.size.width -defaultMargin-filterButton_WithHeight , self.filterButton.frame.origin.y, filterButton_WithHeight, filterButton_WithHeight);
     self.circleView.bounds = CGRectMake(0, 0, 80, 80);
-    self.circleView.center = CGPointMake(self.view.frame.size.width*0.5, self.view.frame.size.height -80-30);
+    self.circleView.center = CGPointMake(self.view.frame.size.width*0.5, self.view.frame.size.height -40-30);
 }
 
-
-
-
+#pragma mark - Event
+//滤镜按钮点击
 - (void)filterButtonAction:(UIButton *)filterButton
 {
-       filterButton.selected = !filterButton.isSelected;
+    filterButton.selected = !filterButton.isSelected;
     if(filterButton.selected)
     {
-        [UIView animateWithDuration:0.25 animations:^{
-            self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
-        }];
+        [self showFilterChooseView];
     }
     else
     {
-        self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
-        [UIView animateWithDuration:0.25 animations:^{
-            self.collectionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
-        }];
+        [self hiddenFilterChooseView];
     }
 }
 
+- (void)adjustButtonAction:(UIButton *)adjustButton
+{
+
+}
+
+//拍视频按钮点击
 - (void)circleViewLongTouch:(UILongPressGestureRecognizer *)longGesture
 {
     if(longGesture.state == UIGestureRecognizerStateBegan)
     {
+        [self.circleView startAnimation];
         [self beginRecord];
     }
     else if (longGesture.state == UIGestureRecognizerStateEnded)
     {
         [self endRecord];
+        [self.circleView stopAnimation];
     }
 }
 
+#pragma mark - handel
 - (void)beginRecord
 {
     unlink([self.videoPath UTF8String]);
     if(self.currentFilter != nil)
     [self.currentFilter addTarget:self.videoWriter];
-    [self.videoWriter startRecording];
-    [self.circleView startAnimation];
+   
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.videoCamera.audioEncodingTarget = self.videoWriter;
+        [self.videoWriter startRecording];
+    });
 }
 
 - (void)endRecord
@@ -126,7 +152,7 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
     __weak typeof(self) weakSelf = self;
     // 储存到图片库,并且设置回调.
     [self.videoWriter finishRecordingWithCompletionHandler:^{
-        [weakSelf createNewWritter];
+        [weakSelf createNewWritterWithisStart:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
             _avplayer = [AVPlayerLayer playerLayerWithPlayer:[AVPlayer playerWithURL:[NSURL fileURLWithPath:weakSelf.videoPath]]];
             _avplayer.frame = weakSelf.view.bounds;
@@ -135,14 +161,85 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
         });
     }];
 }
-- (void)createNewWritter {
+
+
+- (void)createNewWritterWithisStart:(BOOL)isCameraCapture {
     
-    self.videoWriter = [[LZBImageMovieWriter alloc] initWithMovieURL:[NSURL fileURLWithPath:self.videoPath] size:CGSizeMake(LZBImageViewWidth , LZBImageViewHeight) fileType:AVFileTypeMPEG4 outputSettings:self.videoSettings];
-    /// 如果不加上这一句，会出现第一帧闪现黑屏
-    [_videoCamera addAudioInputsAndOutputs];
-    _videoCamera.audioEncodingTarget = self.videoWriter;
+    [self.videoCamera removeTarget:self.videoWriter];
+    
+    self.videoWriter = [[GPUImageMovieWriter alloc] initWithMovieURL:[NSURL fileURLWithPath:self.videoPath] size:CGSizeMake(LZBImageViewWidth , LZBImageViewWidth) fileType:AVFileTypeMPEG4 outputSettings:self.videoSettings];
+    if(isCameraCapture)
+    {
+        [self.videoCamera addAudioInputsAndOutputs];
+        self.videoCamera.audioEncodingTarget = self.videoWriter;
+        [self.videoCamera startCameraCapture];
+        self.currentFilter =[[GPUImageFilter alloc] init]; //默认
+        [self changeFilter:self.currentFilter];
+    }
+    
 }
 
+- (void)addGestureWithCamera
+{
+    UISwipeGestureRecognizer *swipeGestureLeft= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handelSwipeGesture:)];
+    swipeGestureLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+    [self.view addGestureRecognizer:swipeGestureLeft];
+    
+    UISwipeGestureRecognizer *swipeGestureRight= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handelSwipeGesture:)];
+    swipeGestureRight.direction = UISwipeGestureRecognizerDirectionRight;
+    [self.view addGestureRecognizer:swipeGestureRight];
+    
+    UISwipeGestureRecognizer *swipeGestureup= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handelSwipeGesture:)];
+    swipeGestureup.direction = UISwipeGestureRecognizerDirectionUp;
+    [self.view addGestureRecognizer:swipeGestureup];
+    
+    UISwipeGestureRecognizer *swipeGestureDown= [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handelSwipeGesture:)];
+    swipeGestureDown.direction = UISwipeGestureRecognizerDirectionDown;
+    [self.view addGestureRecognizer:swipeGestureDown];
+}
+- (void)handelSwipeGesture:(UISwipeGestureRecognizer *)swipeGesture
+{
+    switch (swipeGesture.direction) {
+        case UISwipeGestureRecognizerDirectionLeft:
+            [self showFilterChooseView];
+            break;
+        case UISwipeGestureRecognizerDirectionRight:
+            [self hiddenFilterChooseView];
+            break;
+        case UISwipeGestureRecognizerDirectionUp:
+            
+            break;
+        case UISwipeGestureRecognizerDirectionDown:
+            
+            break;            
+        default:
+            break;
+    }
+}
+
+//显示滤镜选择View
+- (void)showFilterChooseView
+{
+    if(self.isShowFilterView) return;
+    self.collectionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+    [UIView animateWithDuration:0.25 animations:^{
+        self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+    } completion:^(BOOL finished) {
+         self.isShowFilterView = YES;
+    }];
+}
+
+//隐藏滤镜选择View
+- (void)hiddenFilterChooseView
+{
+      if(!self.isShowFilterView) return;
+    self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+    [UIView animateWithDuration:0.25 animations:^{
+        self.collectionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+    } completion:^(BOOL finished) {
+        self.isShowFilterView = NO;
+    }];
+}
 
 #pragma mark - collection
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -178,37 +275,38 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
     [self.videoCamera removeAllTargets];
     [self.videoCamera addTarget:filter];
     [filter addTarget:self.videoImageView];
+    [self.videoCamera startCameraCapture];
     self.currentFilter = filter;
 }
 
 #pragma mark- lazy
-- (LZBImageVideoCamera *)videoCamera
+- (GPUImageVideoCamera *)videoCamera
 {
   if(_videoCamera == nil)
   {
       // 创建视频源
       // SessionPreset:屏幕分辨率，AVCaptureSessionPresetHigh会自适应高分辨率
       // cameraPosition:摄像头方向
-      _videoCamera = [[LZBImageVideoCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionFront];
+      _videoCamera = [[GPUImageVideoCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionFront];
       _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
       _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
   }
     return _videoCamera;
 }
 
-- (LZBImageFilterGroup *)filterGroup
+- (GPUImageFilterGroup *)filterGroup
 {
   if(_filterGroup == nil)
   {
-      _filterGroup = [[LZBImageFilterGroup alloc]init];
+      _filterGroup = [[GPUImageFilterGroup alloc]init];
   }
     return _filterGroup;
 }
-- (LZBImageView *)videoImageView
+- (GPUImageView *)videoImageView
 {
   if(_videoImageView == nil)
   {
-      _videoImageView= [[LZBImageView alloc] initWithFrame:self.view.bounds];
+      _videoImageView= [[GPUImageView alloc] initWithFrame:self.view.bounds];
       [_videoImageView setFillMode:kGPUImageFillModePreserveAspectRatioAndFill];
   }
     return _videoImageView;
@@ -230,11 +328,27 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
   {
       _filterButton =[UIButton buttonWithType:UIButtonTypeCustom];
       [_filterButton addTarget:self action:@selector(filterButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-      _filterButton.backgroundColor = [UIColor grayColor];
-      [_filterButton setTitle:@"滤镜" forState:UIControlStateNormal];
-      [_filterButton setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+      [_filterButton setImage:[UIImage imageNamed:@"2_1_c_30x30_"] forState:UIControlStateNormal];
+      _filterButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+      _filterButton.layer.cornerRadius = filterButton_WithHeight *0.5;
+      _filterButton.layer.masksToBounds = YES;
+      
   }
     return _filterButton;
+}
+
+- (UIButton *)adjustButton
+{
+  if(_adjustButton == nil)
+  {
+      _adjustButton =[UIButton buttonWithType:UIButtonTypeCustom];
+      [_adjustButton addTarget:self action:@selector(adjustButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+      [_adjustButton setImage:[UIImage imageNamed:@"1_1_c_30x30_"] forState:UIControlStateNormal];
+      _adjustButton.backgroundColor = [UIColor colorWithWhite:1.0 alpha:0.5];
+      _adjustButton.layer.cornerRadius = filterButton_WithHeight *0.5;
+      _adjustButton.layer.masksToBounds = YES;
+  }
+    return _adjustButton;
 }
 
 - (NSString *)videoPath
@@ -280,19 +394,25 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 {
     __weak typeof(self) weakSelf = self;
     UIImage *orginImage = [UIImage imageNamed:@"kxq_explore_image"];
-    for (NSInteger i = 0;i < 7; i++) {
-        LZBFilterModel *model = [[LZBFilterModel alloc]init];
-        LZBFilterType type = [[LZBFilterHandleTool sharedInstance] getFilterTypeForIndex:i];
-        model.filterName = [[LZBFilterHandleTool sharedInstance] getFilterNameWithFilterType:type];
-        dispatch_async(dispatch_get_global_queue(0, 0), ^{
+    NSInteger count = 7;
+    dispatch_async(dispatch_get_global_queue(0, 0), ^{
+        for (NSInteger i = 0;i < count; i++) {
+            LZBFilterModel *model = [[LZBFilterModel alloc]init];
+            LZBFilterType type = [[LZBFilterHandleTool sharedInstance] getFilterTypeForIndex:i];
+            model.filterName = [[LZBFilterHandleTool sharedInstance] getFilterNameWithFilterType:type];
             UIImage *filterImage = [[LZBFilterHandleTool sharedInstance] getFilterImageForOrginImage:orginImage filterType:type];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                model.filterImage = filterImage;
-                [weakSelf.filterModels addObject:model];
-                [weakSelf.collectionView reloadData];
-            });
-        });
-    }
+            model.filterImage = filterImage;
+            [weakSelf.filterModels addObject:model];
+            if(weakSelf.filterModels.count == count)
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [weakSelf.collectionView reloadData];
+                });
+            }
+            
+        }
+    });
+    
 }
 
 - (NSMutableArray *)filterModels
