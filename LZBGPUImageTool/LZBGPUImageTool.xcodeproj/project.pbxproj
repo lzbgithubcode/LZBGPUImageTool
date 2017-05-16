@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		18A36383176B5F99BFFC1334 /* libPods-LZBGPUImageTool.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C91F93C08B3ED449766A68BC /* libPods-LZBGPUImageTool.a */; };
+		C819535A1EC01E4200AA0D3C /* LZBAdjustView.m in Sources */ = {isa = PBXBuildFile; fileRef = C81953591EC01E4200AA0D3C /* LZBAdjustView.m */; };
 		C82A18641EAF939C00282AD3 /* 1_1_c_30x30_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C82A18631EAF939C00282AD3 /* 1_1_c_30x30_@2x.png */; };
 		C82A18661EAF93B200282AD3 /* 2_1_c_30x30_@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = C82A18651EAF93B200282AD3 /* 2_1_c_30x30_@2x.png */; };
+		C8695AFA1ECB0B9100C6CD3E /* LZBPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8695AF91ECB0B9100C6CD3E /* LZBPlayerViewController.m */; };
+		C88C9C831EBC84BC0088826C /* LZBAdjustTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C88C9C821EBC84BC0088826C /* LZBAdjustTableViewCell.m */; };
 		C8FA86831EA85DB400F3E17A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86821EA85DB400F3E17A /* main.m */; };
 		C8FA86861EA85DB400F3E17A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86851EA85DB400F3E17A /* AppDelegate.m */; };
 		C8FA86891EA85DB400F3E17A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C8FA86881EA85DB400F3E17A /* ViewController.m */; };
@@ -68,8 +71,14 @@
 
 /* Begin PBXFileReference section */
 		81D31F1887729127E93FB09C /* Pods-LZBGPUImageTool.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LZBGPUImageTool.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LZBGPUImageTool/Pods-LZBGPUImageTool.debug.xcconfig"; sourceTree = "<group>"; };
+		C81953581EC01E4200AA0D3C /* LZBAdjustView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBAdjustView.h; sourceTree = "<group>"; };
+		C81953591EC01E4200AA0D3C /* LZBAdjustView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBAdjustView.m; sourceTree = "<group>"; };
 		C82A18631EAF939C00282AD3 /* 1_1_c_30x30_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1_1_c_30x30_@2x.png"; sourceTree = "<group>"; };
 		C82A18651EAF93B200282AD3 /* 2_1_c_30x30_@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "2_1_c_30x30_@2x.png"; sourceTree = "<group>"; };
+		C8695AF81ECB0B9100C6CD3E /* LZBPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBPlayerViewController.h; sourceTree = "<group>"; };
+		C8695AF91ECB0B9100C6CD3E /* LZBPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBPlayerViewController.m; sourceTree = "<group>"; };
+		C88C9C811EBC84BC0088826C /* LZBAdjustTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LZBAdjustTableViewCell.h; sourceTree = "<group>"; };
+		C88C9C821EBC84BC0088826C /* LZBAdjustTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LZBAdjustTableViewCell.m; sourceTree = "<group>"; };
 		C8FA867E1EA85DB400F3E17A /* LZBGPUImageTool.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LZBGPUImageTool.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8FA86821EA85DB400F3E17A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		C8FA86841EA85DB400F3E17A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -219,6 +228,8 @@
 				C8FA86851EA85DB400F3E17A /* AppDelegate.m */,
 				C8FA86871EA85DB400F3E17A /* ViewController.h */,
 				C8FA86881EA85DB400F3E17A /* ViewController.m */,
+				C8695AF81ECB0B9100C6CD3E /* LZBPlayerViewController.h */,
+				C8695AF91ECB0B9100C6CD3E /* LZBPlayerViewController.m */,
 				C8FA868A1EA85DB400F3E17A /* Main.storyboard */,
 				C8FA868D1EA85DB400F3E17A /* Assets.xcassets */,
 				C8FA868F1EA85DB400F3E17A /* LaunchScreen.storyboard */,
@@ -347,6 +358,10 @@
 				C8FA87D01EACE3F000F3E17A /* LZBCircleProcessView.m */,
 				C8FA87D11EACE3F000F3E17A /* LZBFilterCollectionViewCell.h */,
 				C8FA87D21EACE3F000F3E17A /* LZBFilterCollectionViewCell.m */,
+				C88C9C811EBC84BC0088826C /* LZBAdjustTableViewCell.h */,
+				C88C9C821EBC84BC0088826C /* LZBAdjustTableViewCell.m */,
+				C81953581EC01E4200AA0D3C /* LZBAdjustView.h */,
+				C81953591EC01E4200AA0D3C /* LZBAdjustView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -542,11 +557,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8FA87C11EACE3B800F3E17A /* IFRiseFilter.m in Sources */,
+				C88C9C831EBC84BC0088826C /* LZBAdjustTableViewCell.m in Sources */,
 				C8FA87B41EACE3B800F3E17A /* GPUImageSixInputFilter.m in Sources */,
 				C8FA87C31EACE3B800F3E17A /* IFSutroFilter.m in Sources */,
 				C8FA87BA1EACE3B800F3E17A /* IFHudsonFilter.m in Sources */,
+				C819535A1EC01E4200AA0D3C /* LZBAdjustView.m in Sources */,
 				C8FA87BD1EACE3B800F3E17A /* IFLomofiFilter.m in Sources */,
 				C8FA86891EA85DB400F3E17A /* ViewController.m in Sources */,
+				C8695AFA1ECB0B9100C6CD3E /* LZBPlayerViewController.m in Sources */,
 				C8FA87E31EACE44D00F3E17A /* LZBFilterHandleTool.m in Sources */,
 				C8FA87BC1EACE3B800F3E17A /* IFInkwellFilter.m in Sources */,
 				C8FA87B31EACE3B800F3E17A /* GPUImageFourInputFilter.m in Sources */,

@@ -4,7 +4,7 @@
 //
 //  Created by zibin on 2017/4/20.
 //  Copyright © 2017年 Apple. All rights reserved.
-//  简书主页：http://www.jianshu.com/u/d21698127416
+//  简书主页：http://www.jianshu.com/u/268ed1ef819e
 //  共享demo资料QQ群：490658347
 //  git地址：https://github.com/lzbgithubcode/LZBGPUImageTool
 
@@ -12,6 +12,9 @@
 #import "LZBCircleProcessView.h"
 #import "LZBFilterCollectionViewCell.h"
 #import "LZBFilterHandleTool.h"
+#import "LZBAdjustTableViewCell.h"
+#import "LZBAdjustView.h"
+#import "LZBPlayerViewController.h"
 
 
 #define LZBImageViewWidth  720
@@ -21,12 +24,13 @@
 #define filterButton_WithHeight 40
 
 static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID";
+
 @interface ViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>
 
 //媒体属性
 @property (nonatomic, strong) NSString *videoPath;
 @property (nonatomic, strong) NSMutableDictionary *videoSettings;
-@property (nonatomic, strong) AVPlayerLayer *avplayer;
+
 
 //相机
 @property (nonatomic, strong) GPUImageVideoCamera *videoCamera;
@@ -40,6 +44,8 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 @property (nonatomic, strong) UIButton *adjustButton;
 @property (nonatomic, strong) LZBCircleProcessView *circleView;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray <LZBAdjustTableViewCellModel *> *adjustModels;
 
 
 //data
@@ -56,14 +62,6 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
     self.isShowFilterView = NO;
 }
 
-- (instancetype)init
-{
-  if(self = [super init])
-  {
-      
-  }
-    return self;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -99,6 +97,8 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 //滤镜按钮点击
 - (void)filterButtonAction:(UIButton *)filterButton
 {
+    [LZBAdjustView dismissAdjustView];
+    
     filterButton.selected = !filterButton.isSelected;
     if(filterButton.selected)
     {
@@ -112,7 +112,53 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 
 - (void)adjustButtonAction:(UIButton *)adjustButton
 {
-
+    [self hiddenFilterChooseView];
+    //调节按钮点击
+    [LZBAdjustView showWithModels:self.adjustModels didSlideBlock:^(LZBAdjustTableViewCellModel *model) {
+        switch (model.adjustType) {
+            case LZBAdjustType_None:
+                return;
+                break;
+            case LZBAdjustType_Brightness:
+            {
+                GPUImageBrightnessFilter *brightnessFilter = [[GPUImageBrightnessFilter alloc]init];
+                brightnessFilter.brightness = model.value;
+                [self changeFilter:brightnessFilter];
+            }
+                break;
+            case LZBAdjustType_Exposures:
+            {
+                GPUImageExposureFilter *exposureFilter = [[GPUImageExposureFilter alloc]init];
+                exposureFilter.exposure = model.value;
+                [self changeFilter:exposureFilter];
+            }
+                break;
+            case LZBAdjustType_Contrast:
+            {
+                GPUImageContrastFilter *contrastFilter = [[GPUImageContrastFilter alloc]init];
+                contrastFilter.contrast = model.value;
+                [self changeFilter:contrastFilter];
+            }
+                break;
+            case LZBAdjustType_Saturation:
+            {
+                GPUImageSaturationFilter *saturationFilter = [[GPUImageSaturationFilter alloc]init];
+                saturationFilter.saturation = model.value;
+                [self changeFilter:saturationFilter];
+            }
+                break;
+            case LZBAdjustType_Gamma:
+            {
+                GPUImageGammaFilter *gammaFilter = [[GPUImageGammaFilter alloc]init];
+                gammaFilter.gamma = model.value;
+                [self changeFilter:gammaFilter];
+            }
+                break;
+                
+            default:
+                break;
+        }
+    }];
 }
 
 //拍视频按钮点击
@@ -154,14 +200,19 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
     [self.videoWriter finishRecordingWithCompletionHandler:^{
         [weakSelf createNewWritterWithisStart:NO];
         dispatch_async(dispatch_get_main_queue(), ^{
-            _avplayer = [AVPlayerLayer playerLayerWithPlayer:[AVPlayer playerWithURL:[NSURL fileURLWithPath:weakSelf.videoPath]]];
-            _avplayer.frame = weakSelf.view.bounds;
-            [weakSelf.view.layer insertSublayer:_avplayer above:weakSelf.videoImageView.layer];
-            [_avplayer.player play];
+            [weakSelf gotoPlayer];
         });
     }];
 }
 
+
+- (void)gotoPlayer
+{
+    LZBPlayerViewController *player = [[LZBPlayerViewController alloc]init];
+    player.videoPath = self.videoPath;
+    player.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:player animated:NO completion:nil];
+}
 
 - (void)createNewWritterWithisStart:(BOOL)isCameraCapture {
     
@@ -221,9 +272,9 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 - (void)showFilterChooseView
 {
     if(self.isShowFilterView) return;
-    self.collectionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+    self.collectionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 20, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
     [UIView animateWithDuration:0.25 animations:^{
-        self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+        self.collectionView.frame = CGRectMake(0,20, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
     } completion:^(BOOL finished) {
          self.isShowFilterView = YES;
     }];
@@ -233,9 +284,9 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
 - (void)hiddenFilterChooseView
 {
       if(!self.isShowFilterView) return;
-    self.collectionView.frame = CGRectMake(0, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+    self.collectionView.frame = CGRectMake(0, 20, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
     [UIView animateWithDuration:0.25 animations:^{
-        self.collectionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height -250, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
+        self.collectionView.frame = CGRectMake([UIScreen mainScreen].bounds.size.width, 20, [UIScreen mainScreen].bounds.size.width, collectionViewHeight);
     } completion:^(BOOL finished) {
         self.isShowFilterView = NO;
     }];
@@ -279,6 +330,12 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
     self.currentFilter = filter;
 }
 
+- (void)addAdjustFilter:(GPUImageOutput<GPUImageInput>*)filter
+{
+    if(filter == nil) return;
+
+}
+
 #pragma mark- lazy
 - (GPUImageVideoCamera *)videoCamera
 {
@@ -287,7 +344,7 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
       // 创建视频源
       // SessionPreset:屏幕分辨率，AVCaptureSessionPresetHigh会自适应高分辨率
       // cameraPosition:摄像头方向
-      _videoCamera = [[GPUImageVideoCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionFront];
+      _videoCamera = [[GPUImageVideoCamera alloc]initWithSessionPreset:AVCaptureSessionPresetHigh cameraPosition:AVCaptureDevicePositionBack];
       _videoCamera.outputImageOrientation = UIInterfaceOrientationPortrait;
       _videoCamera.horizontallyMirrorFrontFacingCamera = YES;
   }
@@ -409,7 +466,6 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
                     [weakSelf.collectionView reloadData];
                 });
             }
-            
         }
     });
     
@@ -424,4 +480,56 @@ static NSString *LZBFilterCollectionViewCellID = @"LZBFilterCollectionViewCellID
     return _filterModels;
 }
 
+- (NSMutableArray<LZBAdjustTableViewCellModel *> *)adjustModels
+{
+  if(_adjustModels == nil)
+  {
+      _adjustModels = [NSMutableArray array];
+      //1.亮度
+      LZBAdjustTableViewCellModel *brightnessModel = [[LZBAdjustTableViewCellModel alloc]init];
+      brightnessModel.title = @"亮度";
+      brightnessModel.minValue = -1.0;
+      brightnessModel.maxValue = 1.0;
+      brightnessModel.value = 0.0;
+      brightnessModel.adjustType = LZBAdjustType_Brightness;
+      [_adjustModels addObject:brightnessModel];
+      
+      //2.曝光
+      LZBAdjustTableViewCellModel *exposuresModel = [[LZBAdjustTableViewCellModel alloc]init];
+      exposuresModel.title = @"曝光";
+      exposuresModel.minValue = -10.0;
+      exposuresModel.maxValue = 10.0;
+      exposuresModel.value = 0.0;
+      exposuresModel.adjustType = LZBAdjustType_Exposures;
+      [_adjustModels addObject:exposuresModel];
+      
+      //3.对比度
+      LZBAdjustTableViewCellModel *contrastModel = [[LZBAdjustTableViewCellModel alloc]init];
+      contrastModel.title = @"对比度";
+      contrastModel.minValue = 0;
+      contrastModel.maxValue = 4.0;
+      contrastModel.value = 1.0;
+      contrastModel.adjustType = LZBAdjustType_Contrast;
+      [_adjustModels addObject:contrastModel];
+      
+      //4.饱和度
+      LZBAdjustTableViewCellModel *saturationModel = [[LZBAdjustTableViewCellModel alloc]init];
+      saturationModel.title = @"饱和度";
+      saturationModel.minValue = 0;
+      saturationModel.maxValue = 2.0;
+      saturationModel.value = 1.0;
+      saturationModel.adjustType = LZBAdjustType_Saturation;
+      [_adjustModels addObject:saturationModel];
+     
+      //5.灰度
+      LZBAdjustTableViewCellModel *gammaModel = [[LZBAdjustTableViewCellModel alloc]init];
+      gammaModel.title = @"灰度";
+      gammaModel.minValue = 0;
+      gammaModel.maxValue = 3.0;
+      gammaModel.value = 1.0;
+      gammaModel.adjustType = LZBAdjustType_Gamma;
+      [_adjustModels addObject:gammaModel];
+  }
+    return _adjustModels;
+}
 @end
